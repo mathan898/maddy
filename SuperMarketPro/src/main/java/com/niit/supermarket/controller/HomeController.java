@@ -37,6 +37,11 @@ public class HomeController {
 	{
 		return "AboutUs";
 	}
+	@RequestMapping(value="/home")
+	public String showHome()
+	{
+		return "Home";
+	}
 
 	
 

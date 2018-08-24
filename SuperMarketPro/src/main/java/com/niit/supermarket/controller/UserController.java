@@ -1,8 +1,11 @@
 package com.niit.supermarket.controller;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,25 @@ public class UserController {
 		String username=authentication.getName();
 		Collection<GrantedAuthority> roles=(Collection<GrantedAuthority>)authentication.getAuthorities();
 		//System.out.println("Login Success");
-		return "ProductDisplay";
+		for(GrantedAuthority role:roles)
+		{
+			session.setAttribute("role", role.getAuthority());
+			if (role.getAuthority().equals("ROLE_USER"))
+			{
+				loggedIn=true;
+				page="ProductDisplay";
+				session.setAttribute("loggedIn", loggedIn);
+				session.setAttribute("username", username);
+			}
+			else
+			{
+				loggedIn=true;
+				page="AdminHome";
+				session.setAttribute("loggedIn",loggedIn);
+				session.setAttribute("username", username);
+			}
+		}
+		return page;
 	}
 
 }

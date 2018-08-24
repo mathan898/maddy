@@ -49,9 +49,9 @@ public class ProductController
 	@RequestMapping("/productDisplay")
 	public String displayAllProducts(Model m)
 	{
-		Product product=new Product();
+		/*Product product=new Product();
 		m.addAttribute(product);
-		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("categoryList",this.getCategories());*/
 		m.addAttribute("productList",productDAO.listProduct());
 		return "ProductDisplay";
 	}
@@ -65,7 +65,7 @@ public class ProductController
 		m.addAttribute(product1);
 		m.addAttribute("categoryList",this.getCategories());
 		m.addAttribute("productList",productDAO.listProduct());
-		String path="C:\\Users\\hp\\workspace\\SuperMarketPro\\src\\main\\webapp\\images\\";
+		String path="C:\\Users\\hp\\workspace\\SuperMarketPro\\src\\main\\webapp\\resources\\images\\";
 		path=path+String.valueOf(product.getProductId())+".jpg";
 		File file=new File(path);
 		
