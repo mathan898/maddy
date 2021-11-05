@@ -13,6 +13,7 @@ System.out.println("alphabets");
 else
 {
 System.out.println("not a alphabet");
+System.out.println("not a alphabet");
 }
 }
 }
