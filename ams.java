@@ -17,5 +17,8 @@ if(c==b)
 System.out.println("Armstrong number");
 else      
 System.out.println(" Not Armstrong number");
+System.out.println(" Not Armstrong number");
+System.out.println(" Not Armstrong number");
+System.out.println(" Not Armstrong number");
 }
 }
